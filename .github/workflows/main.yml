@@ -25,4 +25,3 @@ jobs:
           echo "${{ secrets.KNOW_HOSTS }}" > ~/.ssh/known_hosts
       - name: Deploy To STAGE
         run: ssh -tt stage | php -v
-        shell: bash
