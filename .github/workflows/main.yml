@@ -20,7 +20,9 @@ jobs:
         run: |
           install -m 600 -D /dev/null ~/.ssh/id_rsa
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PUBLIC_KEY }}" > ~/.ssh/id_rsa.pub
+          echo "${{ secrets.SSH_CONFIG }}" > ~/.ssh/config
           echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
       - name: Deploy To STAGE
-        run: sh /var/www/vhosts/stage.vivelacar.com/deployer/deploy_env
+        run: ssh stage | sh /var/www/vhosts/stage.vivelacar.com/deployer/deploy_env
         shell: bash
