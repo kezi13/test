@@ -23,4 +23,5 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         script: |
+          source ~/.bashrc
           depenv
