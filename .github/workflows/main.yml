@@ -23,5 +23,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         script: |
-          whoami
-          ls -al
+          /var/www/vhosts/antun-m.vivelacar.org/httpdocs/antundeployertest/vendor/bin/dep deploy
