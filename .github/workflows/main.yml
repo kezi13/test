@@ -11,20 +11,21 @@ on:
         - production
 
 jobs:
-  deploy-to-stage:
+  if: ('stage' === ${{ inputs.environment }})
+    deploy-to-stage:
+      runs-on: ubuntu-latest
+      steps:
+        - run: |
+            echo "Environment: $ENVIRONMENT"
+          env:
+            ENVIRONMENT: ${{ inputs.environment }}
     if: ('stage' === ${{ inputs.environment }})
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo "Environment: $ENVIRONMENT"
-        env:
-          ENVIRONMENT: ${{ inputs.environment }}
-  deploy-to-production:
-    if: ('production' === ${{ inputs.environment }})
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo "Environment: $ENVIRONMENT"
-        env:
-          ENVIRONMENT: ${{ inputs.environment }}
+      deploy-to-production:
+        if: ('production' === ${{ inputs.environment }})
+        runs-on: ubuntu-latest
+        steps:
+          - run: |
+              echo "Environment: $ENVIRONMENT"
+            env:
+              ENVIRONMENT: ${{ inputs.environment }}
           
