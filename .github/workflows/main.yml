@@ -16,11 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     environment: stage
     steps:
-    - name: Deploy to STAGE enviroment
-      uses: appleboy/ssh-action@v0.1.7
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        script: sh /var/www/vhosts/stage.vivelacar.com/deployer/deploy_env
-
+      - name: Create SSH key
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+      - name: Deploy To STAGE
+        run: sh /var/www/vhosts/stage.vivelacar.com/deployer/deploy_env
+        shell: bash
