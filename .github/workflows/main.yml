@@ -24,4 +24,4 @@ jobs:
           echo "${{ secrets.SSH_CONFIG }}" > ~/.ssh/config
           echo "${{ secrets.KNOW_HOSTS }}" > ~/.ssh/known_hosts
       - name: Deploy To STAGE
-        run: ssh stage | pwd
+        run: ssh stage 'pwd | whoami'
