@@ -17,10 +17,5 @@ jobs:
     environment: stage
     steps:
     - name: Deploy to STAGE enviroment
-      uses: appleboy/ssh-action@v0.1.7
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        script: sh /var/www/vhosts/stage.vivelacar.com/deployer/deploy_env
+      run: ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} "sh /var/www/vhosts/stage.vivelacar.com/deployer/deploy_env"
 
