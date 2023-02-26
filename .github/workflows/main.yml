@@ -14,7 +14,7 @@ jobs:
   deploy-to-stage:
     if: ${{ inputs.environment }} == 'stage'
     runs-on: ubuntu-latest
-    environment: githubactions
+    environment: stage
     steps:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v0.1.7
