@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: stage
     steps:
-    - name: executing remote ssh commands using password
+    - name: Deploy to STAGE enviroment
       uses: appleboy/ssh-action@v0.1.7
       with:
         host: ${{ secrets.HOST }}
