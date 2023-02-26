@@ -23,5 +23,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         script: |
-          cd /var/www/vhosts/stage.vivelacar.com/deployer
-          vendor/bin/dep deploy
+          depenv
