@@ -22,6 +22,5 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
-        script: |
-          sh /var/www/vhosts/stage.vivelacar.com/deployer/deploy_env
+        run: sh /var/www/vhosts/stage.vivelacar.com/deployer/deploy_env
 
