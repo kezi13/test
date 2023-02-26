@@ -24,4 +24,4 @@ jobs:
           echo "${{ secrets.SSH_CONFIG }}" > ~/.ssh/config
           echo "${{ secrets.KNOW_HOSTS }}" > ~/.ssh/known_hosts
       - name: Deploy To STAGE
-        run: ssh stage 'sh /var/www/vhosts/stage.vivelacar.com/deployer/vendor/bin'
+        run: ssh stage 'sh /var/www/vhosts/stage.vivelacar.com/deployer/vendor/bin/dep deploy'
